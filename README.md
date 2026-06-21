@@ -1,39 +1,51 @@
-# Bài tập — Khóa hè Python & Machine Learning 2026
+# Bài tập — Khóa hè Python & Machine Learning + Embedded C 2026
 
-Repo **mẫu** để nộp bài tập của khóa học **Python & Machine Learning** — Machine Learning & IoT Lab, HCMUT.
+Repo **gốc (upstream)** chứa đề bài và khung nộp bài của khóa học — Machine Learning & IoT Lab, HCMUT.
 
-> 📅 Khóa học: 20/6 – 30/8/2026 · 22 buổi · Thứ Bảy & Chủ Nhật
+> 📅 20/6 – 30/8/2026 · Thứ Bảy & Chủ Nhật (Python & ML) · Chủ nhật (Embedded C)
 
 ---
 
-## 🚀 Cách sử dụng (dành cho học viên)
+## 🚀 Hướng dẫn cho học viên (luồng Fork)
 
-**Khuyến nghị:** repo này được đặt là *Template repository*. Hãy bấm nút **"Use this template" → "Create a new repository"** trên GitHub để tạo repo của riêng bạn.
+### Bước 1 — Fork repo gốc
+Vào repo này trên GitHub, bấm nút **Fork** (góc trên bên phải) → GitHub tạo một **repo cá nhân** của bạn (đây là remote `origin`).
 
-Nếu làm thủ công bằng dòng lệnh:
-
+### Bước 2 — Clone fork của bạn về máy
 ```bash
-# 1. Tải repo mẫu về
-git clone https://github.com/mliotlab/Homework-summer-courses-2026.git
+git clone https://github.com/<ten-cua-ban>/Homework-summer-courses-2026.git
 cd Homework-summer-courses-2026
-
-# 2. Trỏ về repo CỦA BẠN (đã tạo trống trên GitHub)
-git remote set-url origin https://github.com/<ten-cua-ban>/<repo-cua-ban>.git
-
-# 3. Đẩy toàn bộ lên repo cá nhân
-git push -u origin main
 ```
 
-Sau đó, mỗi buổi:
-
+### Bước 3 — Thêm remote `upstream` trỏ về repo gốc
 ```bash
-# làm bài trong thư mục tuần tương ứng, ví dụ week01/
+git remote add upstream https://github.com/mliotlab/Homework-summer-courses-2026.git
+git remote -v          # kiem tra: co origin (fork cua ban) va upstream (repo goc)
+```
+
+> **Hai remote:** `origin` = fork cá nhân của bạn · `upstream` = repo gốc của Lab.
+
+---
+
+## 🔄 Mỗi buổi học
+
+### Lấy đề mới (cập nhật từ repo gốc)
+Đề bài của các buổi được thêm dần vào repo gốc. Trước mỗi buổi, đồng bộ:
+```bash
+git pull upstream main
+```
+
+### Làm bài & nộp
+Làm bài trong thư mục tuần tương ứng (`weekXX/`), rồi đẩy lên fork cá nhân:
+```bash
 git add week01/
 git commit -m "week01: hoan thanh bai tap buoi 1"
-git push
+git push origin main
 ```
 
-**Nộp bài:** gửi **link repo cá nhân** của bạn theo hướng dẫn của mentor trên Discord.
+### Nộp bài cho mentor
+- Cách 1 (mặc định): gửi **link repo cá nhân (fork)** của bạn trên Discord để mentor vào check.
+- Cách 2 (nếu mentor yêu cầu): tạo **Pull Request** từ fork của bạn về repo gốc để mentor review.
 
 ---
 
@@ -67,6 +79,13 @@ git push
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+
+## ℹ️ Ghi chú
+
+- Nếu `git pull upstream main` báo xung đột (conflict): thường do bạn sửa cùng file với repo gốc — giữ phần bài làm của bạn trong `weekXX/` và giải quyết conflict theo hướng dẫn của mentor.
+- Repo gốc nên để **Public** để học viên fork được.
 
 ---
 
